@@ -10,7 +10,8 @@
 		1F45A3B3299AA31C00BAB23B /* WordClockApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F45A3B2299AA31C00BAB23B /* WordClockApp.swift */; };
 		1F45A3B5299AA31C00BAB23B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F45A3B4299AA31C00BAB23B /* ContentView.swift */; };
 		1F45A3B7299AA31D00BAB23B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F45A3B6299AA31D00BAB23B /* Assets.xcassets */; };
-		1F45A3BA299AA31D00BAB23B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F45A3B9299AA31D00BAB23B /* Preview Assets.xcassets */; };
+		1F45A3C1299AB06B00BAB23B /* WordClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F45A3C0299AB06B00BAB23B /* WordClock.swift */; };
+		1F45A3C4299EC8CF00BAB23B /* Flow in Frameworks */ = {isa = PBXBuildFile; productRef = 1F45A3C3299EC8CF00BAB23B /* Flow */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,7 +19,7 @@
 		1F45A3B2299AA31C00BAB23B /* WordClockApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordClockApp.swift; sourceTree = "<group>"; };
 		1F45A3B4299AA31C00BAB23B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1F45A3B6299AA31D00BAB23B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		1F45A3B9299AA31D00BAB23B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1F45A3C0299AB06B00BAB23B /* WordClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordClock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +27,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F45A3C4299EC8CF00BAB23B /* Flow in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,20 +53,12 @@
 		1F45A3B1299AA31C00BAB23B /* WordClock */ = {
 			isa = PBXGroup;
 			children = (
-				1F45A3B2299AA31C00BAB23B /* WordClockApp.swift */,
-				1F45A3B4299AA31C00BAB23B /* ContentView.swift */,
 				1F45A3B6299AA31D00BAB23B /* Assets.xcassets */,
-				1F45A3B8299AA31D00BAB23B /* Preview Content */,
+				1F45A3B4299AA31C00BAB23B /* ContentView.swift */,
+				1F45A3C0299AB06B00BAB23B /* WordClock.swift */,
+				1F45A3B2299AA31C00BAB23B /* WordClockApp.swift */,
 			);
 			path = WordClock;
-			sourceTree = "<group>";
-		};
-		1F45A3B8299AA31D00BAB23B /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				1F45A3B9299AA31D00BAB23B /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +77,9 @@
 			dependencies = (
 			);
 			name = WordClock;
+			packageProductDependencies = (
+				1F45A3C3299EC8CF00BAB23B /* Flow */,
+			);
 			productName = WordClock;
 			productReference = 1F45A3AF299AA31C00BAB23B /* WordClock.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +108,9 @@
 				Base,
 			);
 			mainGroup = 1F45A3A6299AA31C00BAB23B;
+			packageReferences = (
+				1F45A3C2299EC8CF00BAB23B /* XCRemoteSwiftPackageReference "SwiftUI-Flow" */,
+			);
 			productRefGroup = 1F45A3B0299AA31C00BAB23B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -125,7 +125,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F45A3BA299AA31D00BAB23B /* Preview Assets.xcassets in Resources */,
 				1F45A3B7299AA31D00BAB23B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,6 +137,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F45A3B5299AA31C00BAB23B /* ContentView.swift in Sources */,
+				1F45A3C1299AB06B00BAB23B /* WordClock.swift in Sources */,
 				1F45A3B3299AA31C00BAB23B /* WordClockApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -266,10 +266,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"WordClock/Preview Content\"";
 				DEVELOPMENT_TEAM = ZN92V6Z5X5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Bluetooth is needed to find a Word Clock";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -282,9 +282,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hillmanapps.WordClock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -295,10 +298,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"WordClock/Preview Content\"";
 				DEVELOPMENT_TEAM = ZN92V6Z5X5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Bluetooth is needed to find a Word Clock";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -311,9 +314,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hillmanapps.WordClock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -339,6 +345,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1F45A3C2299EC8CF00BAB23B /* XCRemoteSwiftPackageReference "SwiftUI-Flow" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/tevelee/SwiftUI-Flow.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1F45A3C3299EC8CF00BAB23B /* Flow */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1F45A3C2299EC8CF00BAB23B /* XCRemoteSwiftPackageReference "SwiftUI-Flow" */;
+			productName = Flow;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1F45A3A7299AA31C00BAB23B /* Project object */;
 }
