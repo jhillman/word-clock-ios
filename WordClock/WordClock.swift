@@ -14,6 +14,10 @@ final class WordClock: NSObject, ObservableObject {
     @Published var updatingBirthdays = false
     @Published var birthdays: [Date] = []
     
+    private let wordClockServiceUUID = "FFE0"
+    private let wordClockCharacteristicUUID = "FFE1"
+    private let wordClockUUID = "ACD54B4B-E4A5-739D-37DB-F7D6313547D0"
+
     private var centralManager: CBCentralManager?
     private var wordClock: CBPeripheral?
     private var wordClockCharacteristic: CBCharacteristic?
@@ -76,7 +80,7 @@ final class WordClock: NSObject, ObservableObject {
 extension WordClock: CBCentralManagerDelegate {
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
         if central.state == .poweredOn {
-            central.scanForPeripherals(withServices: [CBUUID(string: "FFE0")])
+            central.scanForPeripherals(withServices: [CBUUID(string: wordClockServiceUUID)])
         } else {
             wordClock = nil
             connected = false
@@ -85,7 +89,7 @@ extension WordClock: CBCentralManagerDelegate {
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral,
                         advertisementData: [String : Any], rssi RSSI: NSNumber) {
-        if peripheral.name == "WordClock", peripheral.identifier.uuidString == "ACD54B4B-E4A5-739D-37DB-F7D6313547D0" {
+        if peripheral.name == "WordClock", peripheral.identifier.uuidString == wordClockUUID {
             central.stopScan()
             peripheral.delegate = self
             central.connect(peripheral)
@@ -98,7 +102,7 @@ extension WordClock: CBCentralManagerDelegate {
 
 extension WordClock: CBPeripheralDelegate {
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
-        wordClock?.discoverServices([CBUUID(string: "FFE0")])
+        wordClock?.discoverServices([CBUUID(string: wordClockServiceUUID)])
     }
     
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
@@ -122,7 +126,7 @@ extension WordClock: CBPeripheralDelegate {
         }
         
         for characteristic in characteristics {
-            if characteristic.uuid.uuidString == "FFE1"  {
+            if characteristic.uuid.uuidString == wordClockCharacteristicUUID  {
                 wordClockCharacteristic = characteristic
 
                 peripheral.setNotifyValue(true, for: characteristic)
